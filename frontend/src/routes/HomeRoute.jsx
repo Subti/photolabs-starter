@@ -2,22 +2,15 @@ import React from "react";
 import { useState } from 'react';
 
 
-import TopNavigation from './TopNavigationBar';
-import PhotoList from './PhotoList';
+import TopNavigation from '../components/TopNavigationBar';
+import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
-  const [isFav, setIsFav] = useState(false);
-  const clickHandler = function(photoId) {
-    setIsFav(prevState => ({
-      ...prevState,
-      [photoId]: !prevState[photoId]
-    }));
-  };
 
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} isFav={isFav}/>
-      <PhotoList photos={props.photos} clickHandler={clickHandler} isFav={isFav}/>
+      <TopNavigation topics={props.topics} isFav={props.isFav}/>
+      <PhotoList photos={props.photos} favHandler={props.favHandler} isFav={props.isFav} openModal={props.openModal}/>
     </div>
   );
 }

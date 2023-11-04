@@ -6,8 +6,8 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = (props) => {
   return(
       <div className="photo-list__item">
-        <PhotoFavButton clickHandler={props.clickHandler} isFav={props.isFav} photoId={props.id}/>
-        <img src={props.urls.regular} className="photo-list__image" alt="A photo"/>
+        <PhotoFavButton favHandler={props.favHandler} isFav={props.isFav} photoId={props.id}/>
+        <img src={props.urls.regular} className="photo-list__image" alt="A photo" onClick={() => props.openModal(props.photoData)}/>
         <div className="photo-list__user-details">
           <div className="photo-list__user-profile">
             <img src={props.user.profile} className="photo-list__user-profile" alt="A profile"/>
