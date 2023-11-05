@@ -15,27 +15,6 @@ const App = () => {
 
   const { isModalOpen, selectedPhoto, isFav } = state;
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [selectedPhoto, setSelectedPhoto] = useState(null);
-  // const [isFav, setIsFav] = useState(false);
-
-  // const openModal = (photo) => {
-  //   setSelectedPhoto(photo);
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setSelectedPhoto(null);
-  //   setIsModalOpen(false);
-  // };
-
-  // const favHandler = function(photoId) {
-  //   setIsFav(prevState => ({
-  //     ...prevState,
-  //     [photoId]: !prevState[photoId]
-  //   }));
-  // };
-
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} openModal={setPhotoSelected} isFav={isFav} favHandler={updateToFavPhotoIds} />
