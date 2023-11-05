@@ -6,7 +6,6 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  console.log(props.photo)
   const similarPhotos = Object.values(props.photo.similar_photos)
 
   return (
