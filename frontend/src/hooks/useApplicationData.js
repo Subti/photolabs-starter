@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useReducer } from "react";
+
 export const ACTIONS = {
   FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
   FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
@@ -21,7 +22,7 @@ function reducer(state, action) {
     case "SELECT_PHOTO":
       return { ...state, selectedPhoto: action.payload };
     case "DISPLAY_PHOTO_DETAILS":
-      return { ...state, isModalOpen: true };
+      return { ...state, isModalOpen: action.payload };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -40,11 +41,11 @@ const useApplicationData = function () {
 
   const setPhotoSelected = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
+    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: true });
   };
 
   const onClosePhotoDetailsModal = () => {
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
+    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: false });
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: null });
   };
 
