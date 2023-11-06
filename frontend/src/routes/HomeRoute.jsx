@@ -9,8 +9,8 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} isFav={props.isFav}/>
-      <PhotoList photos={props.photos} favHandler={props.favHandler} isFav={props.isFav} openModal={props.openModal}/>
+      <TopNavigation topics={props.topics} isFav={props.isFav} currentTopic={props.currentTopic} updateTopic={props.updateTopic} />
+      <PhotoList photos={props.photos} favHandler={props.favHandler} isFav={props.isFav} openModal={props.openModal} currentTopic={props.currentTopic} />
     </div>
   );
 }

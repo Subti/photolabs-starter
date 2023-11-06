@@ -1,10 +1,11 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
   FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SET_CURRENT_TOPIC: "SET_CURRENT_TOPIC",
   SELECT_PHOTO: "SELECT_PHOTO",
   DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
 };
@@ -16,9 +17,11 @@ function reducer(state, action) {
     case "FAV_PHOTO_REMOVED":
       return { ...state, isFav: { ...state.isFav, [action.payload]: false } };
     case "SET_PHOTO_DATA":
-      return { ...state, photos: action.payload };
+      return { ...state, photoData: action.payload };
     case "SET_TOPIC_DATA":
-      return { ...state, topics: action.payload };
+      return { ...state, topicData: action.payload };
+    case "SET_CURRENT_TOPIC":
+      return { ...state, currentTopic: action.payload };
     case "SELECT_PHOTO":
       return { ...state, selectedPhoto: action.payload };
     case "DISPLAY_PHOTO_DETAILS":
@@ -32,8 +35,9 @@ function reducer(state, action) {
 
 const useApplicationData = function () {
   const [state, dispatch] = useReducer(reducer, {
-    photos: [],
-    topics: [],
+    photoData: [],
+    topicData: [],
+    currentTopic: null,
     isModalOpen: false,
     selectedPhoto: null,
     isFav: {},
@@ -58,12 +62,17 @@ const useApplicationData = function () {
     });
   };
 
+  const updateTopic = (topicId) => {
+    dispatch({ type: ACTIONS.SET_CURRENT_TOPIC, payload: topicId });
+  };
+
   return {
     state,
     dispatch,
     setPhotoSelected,
     onClosePhotoDetailsModal,
     updateToFavPhotoIds,
+    updateTopic,
   };
 };
 
