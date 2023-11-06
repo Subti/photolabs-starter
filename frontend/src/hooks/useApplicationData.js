@@ -55,7 +55,7 @@ const useApplicationData = function () {
 
   const updateToFavPhotoIds = function (photoId) {
     dispatch({
-      type: state.isFav[photoId]
+      type: !!state.isFav[photoId]
         ? ACTIONS.FAV_PHOTO_REMOVED
         : ACTIONS.FAV_PHOTO_ADDED,
       payload: photoId,
