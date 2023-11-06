@@ -10,13 +10,13 @@ It aims to display images that users upload, allowing the images to be categoriz
 
 Here's a look at the home page of the PhotoLabs project:
 
-![Home Page](/path/to/homepage/screenshot.png)
+![Home Page](https://github.com/Subti/photolabs-starter/blob/main/docs/photolabs_homepage.png?raw=true)
 
 ### Modal view
 
 Here's a look at the modal view of the PhotoLabs project:
 
-![Modal view](/path/to/modalview/screenshot.png)
+![Modal view](https://github.com/Subti/photolabs-starter/blob/main/docs/photolabs_modalview.png?raw=true)
 
 
 ## Setup
