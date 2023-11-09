@@ -8,6 +8,7 @@ export const ACTIONS = {
   SET_CURRENT_TOPIC: "SET_CURRENT_TOPIC",
   SELECT_PHOTO: "SELECT_PHOTO",
   DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
+  TOGGLE_DARK_MODE: "TOGGLE_DARK_MODE",
 };
 
 function reducer(state, action) {
@@ -26,6 +27,8 @@ function reducer(state, action) {
       return { ...state, selectedPhoto: action.payload };
     case "DISPLAY_PHOTO_DETAILS":
       return { ...state, isModalOpen: action.payload };
+    case "TOGGLE_DARK_MODE":
+      return { ...state, darkMode: action.payload };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -41,6 +44,7 @@ const useApplicationData = function () {
     isModalOpen: false,
     selectedPhoto: null,
     isFav: {},
+    darkMode: false,
   });
 
   const setPhotoSelected = (photo) => {
@@ -66,6 +70,10 @@ const useApplicationData = function () {
     dispatch({ type: ACTIONS.SET_CURRENT_TOPIC, payload: topicId });
   };
 
+  const toggleDarkMode = () => {
+    dispatch({ type: ACTIONS.TOGGLE_DARK_MODE, payload: !state.darkMode });
+  };
+
   return {
     state,
     dispatch,
@@ -73,6 +81,7 @@ const useApplicationData = function () {
     onClosePhotoDetailsModal,
     updateToFavPhotoIds,
     updateTopic,
+    toggleDarkMode,
   };
 };
 

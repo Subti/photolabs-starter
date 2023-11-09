@@ -1,0 +1,14 @@
+.dark-mode-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 200%;
+  bottom: 60%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
