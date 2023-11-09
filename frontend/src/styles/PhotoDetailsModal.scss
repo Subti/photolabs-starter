@@ -85,7 +85,11 @@
   margin-left: 8px;
 }
 
-.dark-mode {
+.dark-mode .photo-details-modal{
   background-color: #282c34;
   color: white;
+}
+
+.dark-mode .photo-details-modal__close-button {
+  background-color: #282c34;
 }

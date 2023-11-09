@@ -48,7 +48,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={state.photoData} topics={state.topicData} darkMode={darkMode} toggleDarkMode={toggleDarkMode} openModal={setPhotoSelected} isFav={isFav} favHandler={updateToFavPhotoIds} currentTopic={state.currentTopic} updateTopic={updateTopic} />
-      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={onClosePhotoDetailsModal} photos={state.photoData} openModal={setPhotoSelected} favHandler={updateToFavPhotoIds} isFav={isFav} selectedFav={isFav[selectedPhoto.id]}/>}
+      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={onClosePhotoDetailsModal} photos={state.photoData} openModal={setPhotoSelected} favHandler={updateToFavPhotoIds} isFav={isFav} selectedFav={isFav[selectedPhoto.id]} darkMode={darkMode} />}
     </div>
   );
 };
